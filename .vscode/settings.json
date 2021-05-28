@@ -1,3 +1,8 @@
 {
-  "python.pythonPath": "/home/allyson/.local/share/virtualenvs/jiracast-wiQq9O47/bin/python"
+  "python.pythonPath": "/home/allyson/.local/share/virtualenvs/jiracast-wiQq9O47/bin/python",
+  "cSpell.words": [
+    "assemble",
+    "block",
+    "pyttsx"
+  ]
 }

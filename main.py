@@ -1,18 +1,7 @@
-# import pyttsx3
-# engine = pyttsx3.init()
-
-# voices = engine.getProperty('voices')
-
-# for voice in voices:
-#     print(voice)
-
-# engine.setProperty('voice', 'brazil')
-# engine.say('Cade o Ei Merd pra pedir pro meu patrão me demitir agora? Vai reclamar com o batman q eu tô lacrando')
-# engine.runAndWait()
-
-# from atlassian import Jira
-
+from dotenv import load_dotenv
 from IPython import embed
+
+load_dotenv()
 
 # jira = Jira(
 #     url='',
@@ -20,8 +9,7 @@ from IPython import embed
 #     password='')
 
 
-from podcast_editor import PodcastBlocksEditor
+from services.podcast_editor_service import PodcastBlocksEditorService
 
-pbe = PodcastBlocksEditor()
+pbe = PodcastBlocksEditorService()
 pbe.assemble()
-embed()

@@ -11,6 +11,8 @@ autopep8 = "*"
 pyttsx3 = "*"
 atlassian-python-api = "*"
 python-dotenv = "*"
+gtts = "*"
+pydub = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9.5"
