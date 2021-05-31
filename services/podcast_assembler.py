@@ -1,12 +1,12 @@
 import uuid
 from .tts.local_text_to_speech import LocalTextToSpeechService
-from .audio_concatenator_service import AudioConcatenatorService
+from .audio_concatenator import AudioConcatenator
 
 
-class PodcastAssemblerService:
+class PodcastAssembler:
     def __init__(self, blocks: list):
         self.blocks = blocks
-        self.audio_concatenator = AudioConcatenatorService('episode.mp3')
+        self.audio_concatenator = AudioConcatenator('episode.mp3')
 
     def assemble(self) -> str:
         for block in self.blocks:

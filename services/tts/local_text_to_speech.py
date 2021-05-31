@@ -1,4 +1,4 @@
-from models.dialog import Dialog
+from models import Dialog
 from gtts import gTTS
 
 
@@ -20,6 +20,3 @@ class LocalTextToSpeechService:
 
     def configure_engine(self):
         self.engine = gTTS(self.dialog.content, lang='pt', tld='com.br')
-        # self.engine.setProperty('volume', self.VOLUME)
-        # self.engine.setProperty('voice', self.VOICE)
-        # self.engine.setProperty('rate', self.dialog.rate)

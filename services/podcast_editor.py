@@ -1,10 +1,11 @@
-from podcast_blocks.greetings import Greetings
-from podcast_blocks.news_summary import NewsSummary
-from podcast_blocks.read_to_code_news import ReadToCodeNews
+from podcast_blocks import Greetings
+from podcast_blocks import NewsSummary
+from podcast_blocks import ReadToCodeNews
 
-from services.podcast_assembler_service import PodcastAssemblerService
+from services.podcast_assembler import PodcastAssembler
 
-class PodcastBlocksEditorService:
+
+class PodcastBlocksEditor:
     ASSEMBLE_BLOCKS_CLASSES = [
         Greetings,
         NewsSummary,
@@ -26,7 +27,7 @@ class PodcastBlocksEditorService:
 
             self.blocks.append(block.assemble())
 
-
+    # TODO: remover isso daqui e parar para a classe JiraCast
     def assemble_podcast(self) -> None:
-        podcast_assembler_service = PodcastAssemblerService(self.blocks)
+        podcast_assembler_service = PodcastAssembler(self.blocks)
         podcast_assembler_service.assemble()

@@ -1,4 +1,4 @@
-from models.block import Block
+from models import Block
 
 class BasePodcastBlock:
     def __init__(self):

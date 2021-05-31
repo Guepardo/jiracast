@@ -9,7 +9,7 @@ load_dotenv()
 #     password='')
 
 
-from services.podcast_editor_service import PodcastBlocksEditorService
+from services.podcast_editor import PodcastBlocksEditor
 
-pbe = PodcastBlocksEditorService()
+pbe = PodcastBlocksEditor()
 pbe.assemble()

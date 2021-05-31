@@ -1,5 +1,5 @@
-from models.block import Block
-from models.dialog import Dialog
+from models import Block
+from models import Dialog
 
 from .base_podcast_block import BasePodcastBlock
 
