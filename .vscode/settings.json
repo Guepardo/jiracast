@@ -3,6 +3,7 @@
   "cSpell.words": [
     "assemble",
     "block",
+    "getenv",
     "pydub",
     "pyttsx"
   ]
