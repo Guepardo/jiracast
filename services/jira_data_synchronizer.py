@@ -1,4 +1,5 @@
 import os
+import json
 from time import sleep
 from datetime import datetime
 from atlassian import Jira
@@ -6,20 +7,31 @@ from atlassian import Jira
 
 from IPython import embed
 
+
 class JiraDataSynchronizer:
     JQL_QUERY = "project = NET order by updated DESC"
-    LIMIT_TO_RETRIEVE = 500
+    LIMIT_TO_RETRIEVE = 100
     BATCH_SIZE = 20
 
     def __init__(self, date=datetime.now()):
         self.date = date
+        self.issues = []
         self.jira = Jira(
             url=os.getenv('JIRA_URL'),
             username=os.getenv('JIRA_USERNAME'),
             password=os.getenv('JIRA_PASSWORD'))
 
     def sync(self) -> list:
-        tasks = []
+        self.fetch_data_from_jira()
+        self.save_on_database()
+
+    def save_on_database(self) -> None:
+        dumped_issues = json.dumps(self.issues)
+
+        with open('data/data.json', 'w') as file:
+            file.write(dumped_issues)
+
+    def fetch_data_from_jira(self) -> None:
         start = 0
 
         while start < self.LIMIT_TO_RETRIEVE:
@@ -29,12 +41,11 @@ class JiraDataSynchronizer:
                 limit=self.LIMIT_TO_RETRIEVE
             )
 
-            embed()
+            print("Querying...")
 
-            tasks.append(data)
+            for issue in data['issues']:
+                self.issues.append(issue)
+
             start += self.BATCH_SIZE
 
             sleep(0.5)
-
-        return tasks
-
