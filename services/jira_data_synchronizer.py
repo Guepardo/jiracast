@@ -28,8 +28,12 @@ class JiraDataSynchronizer:
     def save_on_database(self) -> None:
         dumped_issues = json.dumps(self.issues)
 
-        with open('data/data.json', 'w') as file:
+        with open(f'data/{self.file_name()}.json', 'w') as file:
             file.write(dumped_issues)
+
+    # TODO: Refactor this to a suitable util class.
+    def file_name(self):
+        return self.date.strftime("%Y_%m_%d")
 
     def fetch_data_from_jira(self) -> None:
         start = 0
