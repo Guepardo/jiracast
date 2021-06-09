@@ -1,6 +1,9 @@
 import json
 from datetime import datetime, timedelta
-from IPython import embed
+from re import S
+
+from data_mappers.issue_mapper import IssueMapper
+
 
 class DataLoader:
     def __init__(self, date):
@@ -12,7 +15,6 @@ class DataLoader:
         with open(f"data/{self.get_file_name()}.json", 'r') as file:
             data = file.read()
 
-        embed()
         return json.loads(data)
 
     # TODO: Refactor this to a suitable util class.
@@ -23,10 +25,29 @@ class DataLoader:
 class JiraData:
     def __init__(self):
         self.today_date = datetime.now()
+
+        # TODO: Refactor this using arrow.
         self.yesterday_date = self.today_date - timedelta(days=1)
 
     def today(self):
-        return DataLoader(self.today_date).load_file()
+        return self._map_data(
+            DataLoader(self.today_date).load_file()
+        )
 
     def yesterday(self):
-        return DataLoader(self.yesterday_date).load_file()
+        return self._map_data(
+            DataLoader(self.yesterday_date).load_file()
+        )
+
+    def _map_data(self, data):
+        issues = []
+
+        for item in data:
+            try:
+                issues.append(
+                    IssueMapper.fromRawData(item)
+                )
+            except:
+                pass
+
+        return issues

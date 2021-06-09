@@ -15,7 +15,11 @@ print()
 # pbe.assemble()
 
 from services.jira_data_synchronizer import JiraDataSynchronizer
+from services.jira_data import JiraData
 
 synch = JiraDataSynchronizer()
-embed()
 synch.sync()
+
+jira_data = JiraData()
+data = jira_data.yesterday()
+embed()
