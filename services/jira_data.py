@@ -1,6 +1,7 @@
 import json
 from datetime import datetime, timedelta
-from re import S
+from typing import List
+from models.issue import Issue
 
 from data_mappers.issue_mapper import IssueMapper
 
@@ -29,17 +30,17 @@ class JiraData:
         # TODO: Refactor this using arrow.
         self.yesterday_date = self.today_date - timedelta(days=1)
 
-    def today(self):
+    def today(self) -> List[Issue]:
         return self._map_data(
             DataLoader(self.today_date).load_file()
         )
 
-    def yesterday(self):
+    def yesterday(self) -> List[Issue]:
         return self._map_data(
             DataLoader(self.yesterday_date).load_file()
         )
 
-    def _map_data(self, data):
+    def _map_data(self, data) -> list:
         issues = []
 
         for item in data:

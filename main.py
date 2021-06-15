@@ -11,15 +11,15 @@ load_dotenv()
 #     password='')
 
 print()
-# pbe = PodcastBlocksEditor()
-# pbe.assemble()
+pbe = PodcastBlocksEditor()
+pbe.assemble()
 
-from services.jira_data_synchronizer import JiraDataSynchronizer
-from services.jira_data import JiraData
+# from services.jira_data_synchronizer import JiraDataSynchronizer
+# from services.jira_data import JiraData
 
-synch = JiraDataSynchronizer()
-synch.sync()
+# synch = JiraDataSynchronizer()
+# synch.sync()
 
-jira_data = JiraData()
-data = jira_data.yesterday()
-embed()
+# jira_data = JiraData()
+# data = jira_data.yesterday()
+# embed()
