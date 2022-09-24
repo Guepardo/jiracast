@@ -1,4 +1,4 @@
 .env
-.wav
+assets/*
 tmp/*.mp3
 data/*.json
