@@ -31,7 +31,6 @@ class JiraDataSynchronizer:
         with open(f'data/{self.file_name()}.json', 'w') as file:
             file.write(dumped_issues)
 
-    # TODO: Refactor this to a suitable util class.
     def file_name(self):
         return self.date.strftime("%Y_%m_%d")
 

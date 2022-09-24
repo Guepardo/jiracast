@@ -1,5 +1,6 @@
 from models import Block
 from models import Dialog
+from services.jira_data_differentiator import JiraDataDifferentiator
 
 from .base_podcast_block import BasePodcastBlock
 
@@ -8,6 +9,7 @@ class NewsSummary(BasePodcastBlock):
     SOUND_COMMA = 'transition'
 
     def __init__(self):
+        self.jira_data_differ = JiraDataDifferentiator()
         super(NewsSummary, self).__init__()
 
     def assemble(self) -> Block:
@@ -34,5 +36,5 @@ class NewsSummary(BasePodcastBlock):
 
     def status_changed_count(self, status_target):
         return len(
-            super().get_issues_status_changed_for(status_target)
+            self.jira_data_differ.get_issues_status_changed_for(status_target)
         )
