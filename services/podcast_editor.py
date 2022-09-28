@@ -23,9 +23,14 @@ class PodcastBlocksEditor:
 
     def assemble_blocks(self) -> None:
         for assemble_block in self.ASSEMBLE_BLOCKS_CLASSES:
-            block = assemble_block()
+            assemble_block_instance = assemble_block()
 
-            self.blocks.append(block.assemble())
+            block = assemble_block_instance.assemble()
+
+            if block.skip:
+                continue
+
+            self.blocks.append(block)
 
     # TODO: remover isso daqui e parar para a classe JiraCast
     def assemble_podcast(self) -> None:
