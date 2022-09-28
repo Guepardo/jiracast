@@ -25,7 +25,7 @@ class NewsSummary(BasePodcastBlock):
             {changed_to_in_progress} tarefas saíram de Ready To Code para em progresso.
             {changed_to_done} tarefas foram homologadas.
             {changed_to_selected_for_release} tarefas foram selecionadas para produção.
-            E {changed_to_live} estão em produção.
+            E {changed_to_live} foram entregues em produção.
         """
 
         dialog = Dialog(voice='male', content=content)

@@ -15,7 +15,11 @@ class ReadToCodeNews(BasePodcastBlock):
         super(ReadToCodeNews, self).__init__()
 
     def assemble(self) -> Block:
-        issues_changed_to_ready_to_code = self.jira_data_differ.get_issues_status_changed_for('Live')
+        issues_changed_to_ready_to_code = self.jira_data_differ.get_issues_status_changed_for(
+            'Live')
+
+        if len(issues_changed_to_ready_to_code) == 0:
+            self._block.skip = True
 
         list_normalized = list(
             map(lambda issue: f"{issue.summary}, que foi atribuída para {issue.assignee_display_name}",

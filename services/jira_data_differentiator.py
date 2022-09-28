@@ -21,3 +21,6 @@ class JiraDataDifferentiator:
                         issues.append(today_issue)
 
         return issues
+
+    def get_today_issues_by_status_name(self, status_name: str):
+        return [issue for issue in self._today_data if issue.status_name == status_name]
