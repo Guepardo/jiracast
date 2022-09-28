@@ -10,7 +10,7 @@ from .base_podcast_block import BasePodcastBlock
 
 
 class DangerZoneNews(BasePodcastBlock):
-    SOUND_COMMA = 'transition'
+    SOUND_COMMA = 'danger'
 
     WIP_COUNT_LIMIT = 2
     TEAM_DANGER_ZONE_LIMIT = 3
@@ -79,7 +79,7 @@ class DangerZoneNews(BasePodcastBlock):
 
         if len(report) > self.TEAM_DANGER_ZONE_LIMIT:
             content = f"""
-            A zona perigosa significa que a tarefa pode potencialmente volarar para o desenvolvedor em algum momento da sprint.
+            A zona perigosa significa que a tarefa pode potencialmente voltar para o desenvolvedor em algum momento da sprint.
             Hoje temos {len(report)} dos desenvolvedores na zona perigosa os prazos de entrega podem ser comprometidos.
           """
 
