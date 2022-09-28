@@ -1,6 +1,8 @@
 from podcast_blocks import Greetings
 from podcast_blocks import NewsSummary
 from podcast_blocks import ReadToCodeNews
+from podcast_blocks import InProgressNews
+from podcast_blocks import DangerZoneNews
 
 from services.podcast_assembler import PodcastAssembler
 
@@ -9,7 +11,9 @@ class PodcastBlocksEditor:
     ASSEMBLE_BLOCKS_CLASSES = [
         Greetings,
         NewsSummary,
-        ReadToCodeNews
+        ReadToCodeNews,
+        InProgressNews,
+        DangerZoneNews
     ]
 
     def __init__(self):
