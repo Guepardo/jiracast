@@ -3,6 +3,7 @@ from podcast_blocks import NewsSummary
 from podcast_blocks import ReadToCodeNews
 from podcast_blocks import InProgressNews
 from podcast_blocks import DangerZoneNews
+from podcast_blocks import HappyBirthdayNews
 from podcast_blocks import Ending
 
 from services.podcast_assembler import PodcastAssembler
@@ -15,6 +16,7 @@ class PodcastBlocksEditor:
         ReadToCodeNews,
         InProgressNews,
         DangerZoneNews,
+        HappyBirthdayNews,
         Ending
     ]
 
