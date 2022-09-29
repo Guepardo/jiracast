@@ -25,10 +25,10 @@ class HappyBirthdayNews(BasePodcastBlock):
         issues = list(filter(lambda x: x[-1] >= self.DAYS_COUNT_LIMIT, issues))
         issues.sort(key=lambda x: x[-1], reverse=True)
 
-        content = """
+        content = f"""
           Neste bloco falaremos das tarefas que estão a mais de {self.DAYS_COUNT_LIMIT} sem nenhuma atualização.
 
-          As tarefas são:
+          Vamos a elas:
         """
 
         list_normalized = list(
