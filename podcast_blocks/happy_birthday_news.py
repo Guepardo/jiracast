@@ -26,7 +26,7 @@ class HappyBirthdayNews(BasePodcastBlock):
         issues.sort(key=lambda x: x[-1], reverse=True)
 
         content = f"""
-          Neste bloco falaremos das tarefas que estão a mais de {self.DAYS_COUNT_LIMIT} sem nenhuma atualização.
+          Neste bloco falaremos das tarefas que estão a mais de {self.DAYS_COUNT_LIMIT} dias sem nenhuma atualização.
 
           Vamos a elas:
         """
